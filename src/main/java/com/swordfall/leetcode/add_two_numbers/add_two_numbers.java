@@ -30,7 +30,7 @@ import java.util.Map;
  */
 public class add_two_numbers {
 
-    public class ListNode {
+    public static class ListNode {
       int val;
       ListNode next;
       ListNode() {}
@@ -38,7 +38,7 @@ public class add_two_numbers {
       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // List a1 = new ArrayList<int>(); ArrayList的类型写为int 错误; list没有标明类型错误
         List<Integer> a1 = new ArrayList<Integer>();
         List<Integer> a2 = new ArrayList<Integer>();
@@ -61,47 +61,42 @@ public class add_two_numbers {
             a1 = a2;
             a2 = transfer;
         }
+        System.out.println(a1.toString());
+        System.out.println(a2.toString());
 
-        int j = a2.size() - 1;
+        int j = 0;
         int count = 0;
         Boolean flag = false;
-        for(int i = a1.size() - 1; i >= 0; i--){
-            if (j >= 0){
+        int sum = 0;
+        for(int i = 0; i < a1.size(); i++){
+            if (j < a2.size()){
                 // int sum = a1[i] + a2[j]; a1[i]为数组写法
-                int sum = a1.get(i) + a2.get(j);
-                if (sum >= 10){
-                    sum = sum -10;
-                    flag = true;
-                }else{
-                    flag = false;
-                }
-                result.add(sum + count);
-                if (flag){
-                    count = 1;
-                }else{
-                    count = 0;
-                }
+                sum = a1.get(i) + a2.get(j) + count;
             }else{
-                int sum = a1.get(i) + count;
-                if (sum >= 10){
-                    sum = sum -10;
-                    flag = true;
-                }else{
-                    flag = false;
-                }
-                result.add(sum);
-                if (flag){
-                    count = 1;
-                }else{
-                    count = 0;
-                }
-                if(count == 1 && i == 0){
-                    result.add(1);
-                }
+                sum = a1.get(i) + count;
             }
-            j--;
+
+            if (sum >= 10){
+                sum = sum -10;
+                flag = true;
+            }else{
+                flag = false;
+            }
+            System.out.println("a1["+ i + "]: " + a1.get(i) + ", a2[" + j + "]: " + a2.get(j) + ", count:" + count);
+            result.add(sum);
+            if (flag){
+                count = 1;
+            }else{
+                count = 0;
+            }
+            if(count == 1 && i == (a1.size() - 1)){
+                System.out.println("----------");
+                result.add(1);
+            }
+            j++;
         }
 
+        System.out.println(result.toString());
         // Map<int, ListNode> map = new HashMap<int, ListNode>(); map类型不能为int，错误
         Map<Integer, ListNode> map = new HashMap<Integer, ListNode>();
         for(int i = result.size() - 1; i >= 0; i--){
@@ -117,7 +112,27 @@ public class add_two_numbers {
         return map.get(0);
     }
 
-    public static void main(String[] args) {
+    
 
+    public static void main(String[] args) {
+        ListNode ln11 = new ListNode(7);
+        ListNode ln12 = new ListNode(3, ln11);
+        /*ListNode ln11 = new ListNode(9);
+        ListNode ln12 = new ListNode(4, ln11);
+        ListNode ln13 = new ListNode(2, ln12);
+
+        ListNode ln21 = new ListNode(9);
+        ListNode ln22 = new ListNode(4, ln21);
+        ListNode ln23 = new ListNode(6, ln22);
+        ListNode ln24 = new ListNode(5, ln23);*/
+        ListNode ln21 = new ListNode(2);
+        ListNode ln22 = new ListNode(9, ln21);
+
+        ListNode result = addTwoNumbers(ln12, ln22);
+        System.out.println(result.val);
+        System.out.println(result.next.val);
+/*        System.out.println(result.next.next.val);
+        System.out.println(result.next.next.next.val);
+        System.out.println(result.next.next.next.next.val);*/
     }
 }
