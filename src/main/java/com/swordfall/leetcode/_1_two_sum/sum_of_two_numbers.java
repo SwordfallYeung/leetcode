@@ -1,4 +1,4 @@
-package com.swordfall.leetcode.two_sum;/**
+package com.swordfall.leetcode._1_two_sum;/**
  * @Author: Yang JianQiu
  * @Date: 2020/10/21 0:18
  */
