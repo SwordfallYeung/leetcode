@@ -1,7 +1,4 @@
-package com.swordfall.leetcode._1_two_sum;/**
- * @Author: Yang JianQiu
- * @Date: 2020/10/21 0:18
- */
+package com.swordfall.leetcode._1_two_sum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +13,7 @@ import java.util.Map;
  * 链接：https://leetcode-cn.com/problems/two-sum
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @author: Swordfall Yeung
- * @date:
+ * @date: 2020/10/21 0:18
  * @desc:
  */
 public class sum_of_two_numbers {

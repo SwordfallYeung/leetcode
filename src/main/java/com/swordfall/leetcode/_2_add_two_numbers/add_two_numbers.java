@@ -1,7 +1,4 @@
-package com.swordfall.leetcode._2_add_two_numbers;/**
- * @Author: Yang JianQiu
- * @Date: 2020/10/22 1:27
- */
+package com.swordfall.leetcode._2_add_two_numbers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +22,7 @@ import java.util.Map;
  * 链接：https://leetcode-cn.com/problems/add-two-numbers
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @author: Swordfall Yeung
- * @date:
+ * @date: 2020/10/22 1:27
  * @desc:
  */
 public class add_two_numbers {
