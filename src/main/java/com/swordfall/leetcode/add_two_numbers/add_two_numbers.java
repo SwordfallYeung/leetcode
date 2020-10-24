@@ -112,7 +112,41 @@ public class add_two_numbers {
         return map.get(0);
     }
 
-    
+    /**
+     * 官方题解
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public static ListNode addTowNumbers2(ListNode l1, ListNode l2){
+            int carry = 0;
+            ListNode head = null, tail = null;
+            while(l1 != null || l2 != null){
+                int n1 = l1 != null? l1.val : 0;
+                int n2 = l2 != null? l2.val : 0;
+                int sum = n1 + n2 + carry;
+
+                if (head == null){
+                    head = tail = new ListNode(sum % 10) ;
+                }else{
+                    tail.next = new ListNode(sum % 10) ;
+                    tail = tail.next;
+                }
+                carry = sum / 10;
+                //if(l1.next != null){
+                if(l1 != null){
+                    l1 = l1.next;
+                }
+                if(l2 != null){
+                    l2 = l2.next;
+                }
+            }
+            if(carry > 0){
+                tail.next = new ListNode(carry);
+            }
+            return head;
+    }
+
 
     public static void main(String[] args) {
         ListNode ln11 = new ListNode(7);
@@ -128,7 +162,7 @@ public class add_two_numbers {
         ListNode ln21 = new ListNode(2);
         ListNode ln22 = new ListNode(9, ln21);
 
-        ListNode result = addTwoNumbers(ln12, ln22);
+        ListNode result = addTowNumbers2(ln12, ln22);
         System.out.println(result.val);
         System.out.println(result.next.val);
 /*        System.out.println(result.next.next.val);
